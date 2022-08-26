@@ -107,16 +107,26 @@ const char* furi_hal_region_get_name() {
 }
 
 bool furi_hal_region_is_frequency_allowed(uint32_t frequency) {
-    if(!furi_hal_region) {
-        return false;
-    }
-
-    const FuriHalRegionBand* band = furi_hal_region_get_band(frequency);
-    if(!band) {
-        return false;
-    }
-
+    /**
+     * HACK: ignore all region limition and always say that is ok to RX and TX
+     *
+     * This changes are introduced here
+     * https://github.com/flipperdevices/flipperzero-firmware/pull/1574
+     */
     return true;
+
+    // The code below is commented to save some space
+
+    // if(!furi_hal_region) {
+    //     return false;
+    // }
+
+    // const FuriHalRegionBand* band = furi_hal_region_get_band(frequency);
+    // if(!band) {
+    //     return false;
+    // }
+
+    // return true;
 }
 
 const FuriHalRegionBand* furi_hal_region_get_band(uint32_t frequency) {
