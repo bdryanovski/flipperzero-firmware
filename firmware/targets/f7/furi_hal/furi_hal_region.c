@@ -113,7 +113,7 @@ bool furi_hal_region_is_frequency_allowed(uint32_t frequency) {
      * This changes are introduced here
      * https://github.com/flipperdevices/flipperzero-firmware/pull/1574
      */
-    return true;
+    // return true;
 
     // The code below is commented to save some space
 
@@ -121,12 +121,12 @@ bool furi_hal_region_is_frequency_allowed(uint32_t frequency) {
     //     return false;
     // }
 
-    // const FuriHalRegionBand* band = furi_hal_region_get_band(frequency);
-    // if(!band) {
-    //     return false;
-    // }
+    const FuriHalRegionBand* band = furi_hal_region_get_band(frequency);
+    if(!band) {
+        return true; /* Original was false */
+    }
 
-    // return true;
+    return true;
 }
 
 const FuriHalRegionBand* furi_hal_region_get_band(uint32_t frequency) {
