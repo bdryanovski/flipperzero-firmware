@@ -108,7 +108,7 @@ const char* furi_hal_region_get_name() {
 
 bool furi_hal_region_is_frequency_allowed(uint32_t frequency) {
     /**
-     * HACK: ignore all region limition and always say that is ok to RX and TX
+     * HACK: ignore all region limitation and always say that is ok to RX and TX
      *
      * This changes are introduced here
      * https://github.com/flipperdevices/flipperzero-firmware/pull/1574
